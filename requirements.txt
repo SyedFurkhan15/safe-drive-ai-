@@ -1,0 +1,31 @@
+# SafeDrive AI - Dependencies
+# Real-Time Driver Risk Assessment and Accident Prevention System
+
+# Web Framework
+streamlit>=1.30.0
+streamlit-webrtc>=0.47.0
+
+# Computer Vision
+opencv-python-headless>=4.8.0
+# IMPORTANT: pinned, not a floor. mediapipe removed the legacy
+# `mediapipe.solutions` / `mediapipe.python.solutions` API (which this
+# project's face-mesh code imports) starting around 0.10.3x on Python 3.12+.
+# An unpinned ">=" will silently break `driver_monitor.py` on a fresh install.
+# See: https://github.com/google-ai-edge/mediapipe/issues/6192
+mediapipe==0.10.21
+
+# Object Detection (YOLOv8)
+ultralytics>=8.1.0
+
+# Deep Learning Backend
+torch>=2.0.0
+torchvision>=0.15.0
+
+# Video Frame Handling
+av>=11.0.0
+
+# Numerical Computing
+numpy>=1.24.0
+
+# Audio Generation
+scipy>=1.10.0
