@@ -1,6 +1,3 @@
- **SafeDrive AI GitHub repository**.
-
-````markdown
 # 🚗 SafeDrive AI
 ## AI-Based Driver Monitoring and Safety Assistance System
 
@@ -73,9 +70,6 @@ Head Analysis       Detection
               │
               ▼
    Alerts • Events • Results
-````
-
----
 
 # 🤖 AI Models and Technologies
 
