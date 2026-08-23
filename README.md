@@ -26,7 +26,6 @@ Driver fatigue and distraction are major factors that can contribute to unsafe d
 
 # 🧠 System Architecture
 
-```text
 Camera / Image / Video / Dataset
               │
               ▼
@@ -51,3 +50,75 @@ Head Analysis       Detection
               │
               ▼
    Alerts • Events • Results
+
+# 🤖 AI Models and Algorithms
+
+| Component | Algorithm / Model | Purpose |
+|---|---|---|
+| Facial Landmark Detection | MediaPipe Face Mesh | Detect facial landmarks |
+| Eye Analysis | Landmark-based geometric analysis | Detect prolonged eye closure |
+| Mouth Analysis | Landmark-based analysis | Detect yawning indicators |
+| Head Analysis | Face orientation analysis | Detect possible distraction |
+| Object Detection | YOLOv8 | Detect mobile phone usage |
+| Image Processing | OpenCV | Process images and video frames |
+| Risk Evaluation | Risk and Alert Logic | Combine unsafe behaviour signals |
+| Dashboard | Streamlit | Display monitoring results |
+
+---
+
+# ⚙️ How the System Works
+
+### 1. Input Acquisition
+
+The system accepts:
+
+- Live webcam
+- Uploaded images
+- Video files
+- ZIP-based datasets
+
+### 2. Frame Processing
+
+OpenCV processes images and videos frame by frame.
+
+### 3. Driver Face Analysis
+
+MediaPipe Face Mesh extracts facial landmarks for analyzing:
+
+- Eyes
+- Mouth
+- Face orientation
+
+### 4. Behaviour Detection
+
+The system identifies:
+
+- Possible drowsiness
+- Yawning
+- Possible distraction
+
+### 5. Mobile Phone Detection
+
+YOLOv8 detects mobile phones and provides:
+
+- Object class
+- Bounding box
+- Detection confidence
+
+### 6. Risk Analysis
+
+```text
+Drowsiness
+     +
+Yawning
+     +
+Distraction
+     +
+Phone Usage
+     ↓
+Risk Analysis
+     ↓
+Driver Safety Status
+
+
+
