@@ -71,156 +71,124 @@ Head Analysis       Detection
               ▼
    Alerts • Events • Results
 
-# 🤖 AI Models and Technologies
-
-## 1. MediaPipe Face Mesh
+🤖 AI Models and Technologies
+1. MediaPipe Face Mesh
 
 MediaPipe Face Mesh is used to extract facial landmarks from the driver's face.
 
 These landmarks are used to analyze:
 
-* Eye behaviour
-* Eye closure
-* Mouth opening
-* Yawning indicators
-* Face orientation
-* Head movement
-* Possible distraction
+Eye behaviour
+Eye closure
+Mouth opening
+Yawning indicators
+Face orientation
+Head movement
+Possible distraction
 
 The project uses a pretrained facial landmark solution rather than training a facial landmark model from scratch.
 
----
-
-## 2. YOLOv8
+2. YOLOv8
 
 YOLOv8 is used for object detection.
 
 In SafeDrive AI, it is used primarily to detect:
 
-* 📱 Mobile phones
+📱 Mobile phones
 
 YOLOv8 provides object detection information such as:
 
-* Object class
-* Bounding box location
-* Detection confidence
+Object class
+Bounding box location
+Detection confidence
 
 The detected phone information is passed to the monitoring and risk analysis system.
 
----
-
-## 3. Landmark-Based Behaviour Analysis
+3. Landmark-Based Behaviour Analysis
 
 Facial landmark coordinates are analyzed to derive behavioural indicators.
 
-### Eye Analysis
+Eye Analysis
 
 Eye-related facial landmarks are used to monitor eye openness and prolonged eye closure.
 
 Possible prolonged closure can be used as an indicator of:
 
-> **Potential driver drowsiness**
+Potential driver drowsiness
 
----
-
-### Mouth Analysis
+Mouth Analysis
 
 Mouth landmarks are analyzed to determine significant mouth opening.
 
 This can be used as an indicator of:
 
-> **Possible yawning behaviour**
+Possible yawning behaviour
 
----
-
-### Head Orientation Analysis
+Head Orientation Analysis
 
 Facial landmarks are used to estimate the orientation of the driver's face.
 
 If the driver's face remains significantly away from the expected forward direction, the system can identify:
 
-> **Potential distraction**
+Potential distraction
 
----
-
-# ⚙️ Algorithms and Methods Used
-
-| Component                 | Algorithm / Method                   | Purpose                                      |
-| ------------------------- | ------------------------------------ | -------------------------------------------- |
-| Facial Landmark Detection | MediaPipe Face Mesh                  | Detect facial landmark points                |
-| Eye Analysis              | Landmark-based geometric analysis    | Detect eye closure and drowsiness indicators |
-| Mouth Analysis            | Landmark-based analysis              | Detect yawning indicators                    |
-| Head Analysis             | Face orientation / landmark analysis | Detect possible distraction                  |
-| Object Detection          | YOLOv8                               | Detect mobile phone usage                    |
-| Image Processing          | OpenCV                               | Process images and video frames              |
-| Risk Evaluation           | Risk and alert logic                 | Combine unsafe behaviour signals             |
-| User Interface            | Streamlit                            | Interactive monitoring dashboard             |
-
----
-
-# 🔄 How the System Works
-
-## Step 1: Input Acquisition
+⚙️ Algorithms and Methods Used
+Component	Algorithm / Method	Purpose
+Facial Landmark Detection	MediaPipe Face Mesh	Detect facial landmark points
+Eye Analysis	Landmark-based geometric analysis	Detect eye closure and drowsiness indicators
+Mouth Analysis	Landmark-based analysis	Detect yawning indicators
+Head Analysis	Face orientation / landmark analysis	Detect possible distraction
+Object Detection	YOLOv8	Detect mobile phone usage
+Image Processing	OpenCV	Process images and video frames
+Risk Evaluation	Risk and alert logic	Combine unsafe behaviour signals
+User Interface	Streamlit	Interactive monitoring dashboard
+🔄 How the System Works
+Step 1: Input Acquisition
 
 The system accepts input from:
 
-* Live webcam
-* Uploaded images
-* Video files
-* ZIP-based datasets
-
----
-
-## Step 2: Frame Processing
+Live webcam
+Uploaded images
+Video files
+ZIP-based datasets
+Step 2: Frame Processing
 
 The input image or video is processed frame by frame using OpenCV.
 
 Each frame is prepared for analysis by the AI modules.
 
----
-
-## Step 3: Driver Face Analysis
+Step 3: Driver Face Analysis
 
 MediaPipe Face Mesh extracts facial landmark coordinates.
 
 The landmarks are used to analyze:
 
-* Eyes
-* Mouth
-* Face orientation
-
----
-
-## Step 4: Behaviour Detection
+Eyes
+Mouth
+Face orientation
+Step 4: Behaviour Detection
 
 The extracted facial information is used to identify visible behavioural indicators such as:
 
-* Eye closure
-* Possible drowsiness
-* Yawning
-* Possible distraction
-
----
-
-## Step 5: Mobile Phone Detection
+Eye closure
+Possible drowsiness
+Yawning
+Possible distraction
+Step 5: Mobile Phone Detection
 
 YOLOv8 analyzes the frame and detects mobile phones.
 
 The detection includes:
 
-* Phone location
-* Bounding box
-* Detection confidence
+Phone location
+Bounding box
+Detection confidence
 
----
-
-## Step 6: Risk Analysis
+Step 6: Risk Analysis
 
 The system combines the detected behavioural indicators.
 
 For example:
-
-```text
 Drowsiness
      +
 Yawning
@@ -232,44 +200,36 @@ Phone Usage
 Risk Analysis
      ↓
 Driver Safety Status
-```
 
 The system can classify the driver's current state into different safety levels.
 
----
-
-## Step 7: Alerts and Dashboard
+Step 7: Alerts and Dashboard
 
 The final information is displayed on the SafeDrive AI dashboard.
 
 The dashboard can show:
 
-* Live video feed
-* Driver status
-* Risk score
-* Risk level
-* Eye-related information
-* Mouth-related information
-* Head orientation
-* Phone detection status
-* Alerts
-* Event information
-
----
-
-# 📊 Dataset and Testing Support
+Live video feed
+Driver status
+Risk score
+Risk level
+Eye-related information
+Mouth-related information
+Head orientation
+Phone detection status
+Alerts
+Event information
+📊 Dataset and Testing Support
 
 SafeDrive AI supports offline testing using uploaded:
 
-* Images
-* Videos
-* ZIP files containing supported media
+Images
+Videos
+ZIP files containing supported media
 
 The dataset processing pipeline allows the project to analyze multiple files and display results through the dashboard.
 
 The general dataset workflow is:
-
-```text
 Dataset / ZIP Upload
         ↓
 File Extraction
@@ -285,71 +245,60 @@ Behaviour Detection
 Risk Analysis
         ↓
 Results Dashboard
-```
-
----
-
-# 🖥️ Features
-
-### 🚗 Live Driver Monitoring
+🖥️ Features
+🚗 Live Driver Monitoring
 
 Monitor the driver using a webcam and process video frames in real time or near-real time.
 
-### 😴 Drowsiness Monitoring
+😴 Drowsiness Monitoring
 
 Analyze eye-related facial landmarks to identify prolonged eye closure.
 
-### 🥱 Yawning Detection
+🥱 Yawning Detection
 
 Analyze mouth landmarks to identify possible yawning behaviour.
 
-### 👀 Distraction Detection
+👀 Distraction Detection
 
 Analyze facial orientation and head movement to identify possible driver distraction.
 
-### 📱 Mobile Phone Detection
+📱 Mobile Phone Detection
 
 Use YOLOv8 object detection to identify mobile phones.
 
-### ⚠️ Risk Analysis
+⚠️ Risk Analysis
 
 Combine multiple detected behaviours to estimate the current driver safety level.
 
-### 🚨 Alert System
+🚨 Alert System
 
 Generate alerts when unsafe behaviour is detected.
 
-### 📊 Interactive Dashboard
+📊 Interactive Dashboard
 
 Display monitoring information using a Streamlit-based dashboard.
 
-### 📁 Dataset Processing
+📁 Dataset Processing
 
 Support images, videos, and ZIP-based datasets for testing.
 
-### 📝 Event Logging
+📝 Event Logging
 
 Record important detected events during the monitoring session.
 
----
+🛠️ Technologies Used
+Python
+Streamlit
+OpenCV
+MediaPipe
+YOLOv8
+Ultralytics
+NumPy
+Pandas
+Streamlit WebRTC
 
-# 🛠️ Technologies Used
+📂 Project Structure
 
-* **Python**
-* **Streamlit**
-* **OpenCV**
-* **MediaPipe**
-* **YOLOv8**
-* **Ultralytics**
-* **NumPy**
-* **Pandas**
-* **Streamlit WebRTC**
-
----
-
-# 📂 Project Structure
-
-```text
 SafeDrive-AI/
 │
 ├── app.py                  # Main Streamlit application
@@ -365,81 +314,41 @@ SafeDrive-AI/
 ├── requirements.txt        # Required Python libraries
 ├── README.md               # Project documentation
 └── .gitignore              # Ignored files and folders
-```
 
-> The exact project structure may vary depending on the files included in the repository.
-
----
-
-# 🚀 Installation
-
-## 1. Clone the Repository
-
-```bash
+🚀 Installation
+1. Clone the Repository
 git clone https://github.com/YOUR-USERNAME/SafeDrive-AI.git
-```
 
 Navigate to the project directory:
 
-```bash
 cd SafeDrive-AI
-```
-
----
-
-## 2. Create a Virtual Environment
-
-```bash
+2. Create a Virtual Environment
 python -m venv venv
-```
 
 Activate the environment.
 
-### Windows
-
-```cmd
+Windows
 venv\Scripts\activate
-```
-
-### Linux / macOS
-
-```bash
+Linux / macOS
 source venv/bin/activate
-```
-
----
-
-## 3. Install Required Libraries
-
-```bash
+3. Install Required Libraries
 pip install -r requirements.txt
-```
-
----
-
-# ▶️ Running the Project
+▶️ Running the Project
 
 After installing all dependencies, run:
 
-```bash
 python -m streamlit run app.py
-```
 
 The application will start and provide a local URL similar to:
 
-```text
 http://localhost:8501
-```
 
 Open the URL in your browser.
 
----
-
-# 📦 Requirements
+📦 Requirements
 
 The project may require libraries such as:
 
-```text
 streamlit
 streamlit-webrtc
 opencv-python
@@ -450,17 +359,11 @@ pandas
 av
 torch
 torchvision
-```
 
 The exact versions should be defined in:
 
-```text
 requirements.txt
-```
-
----
-
-# 📈 Model Evaluation
+📈 Model Evaluation
 
 SafeDrive AI is an integrated prototype containing multiple components.
 
@@ -468,106 +371,86 @@ Therefore, it is important not to represent the complete system using a single a
 
 Different components require different evaluation metrics.
 
-### Object Detection
+Object Detection
 
 YOLOv8 can be evaluated using:
 
-* Precision
-* Recall
-* mAP@50
-* mAP@50:95
-
-### Behaviour Detection
+Precision
+Recall
+mAP@50
+mAP@50:95
+Behaviour Detection
 
 Driver behaviour classification can be evaluated using:
 
-* Accuracy
-* Precision
-* Recall
-* F1-score
-* Confusion Matrix
-
-### Real-Time Performance
+Accuracy
+Precision
+Recall
+F1-score
+Confusion Matrix
+Real-Time Performance
 
 The system can also be evaluated using:
 
-* Frames Per Second (FPS)
-* Processing latency
-* Frame processing time
-
----
-
-# ⚠️ Limitations
+Frames Per Second (FPS)
+Processing latency
+Frame processing time
+⚠️ Limitations
 
 SafeDrive AI is a prototype and has several limitations:
 
-* Performance may depend on lighting conditions.
-* Face detection can be affected by occlusion.
-* Extreme head angles may reduce landmark accuracy.
-* Camera quality can affect detection performance.
-* Mobile phones may not be detected if they are heavily occluded.
-* Real-time performance depends on the available hardware.
-* The system analyzes selected visible behaviours only.
-* The system does not directly control a vehicle.
-* The system does not guarantee accident prevention.
-
----
-
-# 🔮 Future Scope
+Performance may depend on lighting conditions.
+Face detection can be affected by occlusion.
+Extreme head angles may reduce landmark accuracy.
+Camera quality can affect detection performance.
+Mobile phones may not be detected if they are heavily occluded.
+Real-time performance depends on the available hardware.
+The system analyzes selected visible behaviours only.
+The system does not directly control a vehicle.
+The system does not guarantee accident prevention.
+🔮 Future Scope
 
 Future improvements may include:
 
-* Improved real-time performance
-* Custom-trained driver behaviour models
-* Better evaluation using labelled datasets
-* Improved night-time monitoring
-* Infrared camera support
-* Advanced gaze tracking
-* Multi-driver support
-* Cloud-based monitoring
-* Mobile application integration
-* GPS and vehicle sensor integration
-* Personalized driver behaviour models
-* Advanced deep-learning-based risk prediction
-
----
-
-# 🎓 Academic Purpose
+Improved real-time performance
+Custom-trained driver behaviour models
+Better evaluation using labelled datasets
+Improved night-time monitoring
+Infrared camera support
+Advanced gaze tracking
+Multi-driver support
+Cloud-based monitoring
+Mobile application integration
+GPS and vehicle sensor integration
+Personalized driver behaviour models
+Advanced deep-learning-based risk prediction
+🎓 Academic Purpose
 
 SafeDrive AI was developed as an academic project to explore the practical application of:
 
-* Artificial Intelligence
-* Machine Learning
-* Deep Learning
-* Computer Vision
-* Object Detection
-* Facial Landmark Analysis
-* Real-Time Video Processing
+Artificial Intelligence
+Machine Learning
+Deep Learning
+Computer Vision
+Object Detection
+Facial Landmark Analysis
+Real-Time Video Processing
 
 The project demonstrates how multiple AI and computer vision components can be integrated into a single driver monitoring prototype.
 
----
+👨‍💻 Author
 
-# 👨‍💻 Author
-
-**Syed Furkhan**
+Syed Furkhan
 
 B.Tech – Computer Science and Engineering
 Artificial Intelligence and Machine Learning
 
----
-
-# 📜 Disclaimer
+📜 Disclaimer
 
 SafeDrive AI is an academic and experimental prototype.
 
 It is designed to demonstrate AI-based driver monitoring using computer vision techniques. It should not be considered a certified automotive safety system and must not be relied upon as the sole mechanism for preventing accidents or ensuring driver safety.
 
----
-
-## ⭐ If you found this project interesting, consider giving it a star!
-
-```
+⭐ If you found this project interesting, consider giving it a star!
 
 **One thing before you upload:** make sure the filenames in the **Project Structure** section exactly match the files you actually upload. Don't leave fake filenames in the README if your project doesn't contain them.
-```
